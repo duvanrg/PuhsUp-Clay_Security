@@ -13,9 +13,9 @@ namespace Domain.Interfaces
         IPersona Personas { get; }
         IProgramacion Programaciones { get; }
         ITipocontacto Tipocontactos { get; }
+        ITipopersona Tipopersonas { get; }
         ITipodireccion Tipodirecciones { get; }
         ITurno Turnos { get; }
-
         Task<int> SaveAsync();
     }
 }

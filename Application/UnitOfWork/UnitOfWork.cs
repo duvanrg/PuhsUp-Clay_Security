@@ -4,9 +4,16 @@ using Persistence.Data;
 
 namespace Application.UnitOfWork
 {
-    public class UnifOfWork : IUnitOfWork, IDisposable
+    public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private readonly ApiContext _context;
+
+        public UnitOfWork(ApiContext context)
+        {
+            _context = context;
+        }
+
+
         private CategoriaperRepository _Categoriapers;
         private CiudadRepository _Ciudades;
         private ContactoperRepository _Contactopers;
@@ -157,7 +164,5 @@ namespace Application.UnitOfWork
         {
             _context.Dispose();
         }
-
-
     }
 }
