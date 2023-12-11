@@ -24,6 +24,14 @@ namespace API.Controllers
             var contrato = await _unitOfWork.Contratos.GetAllAsync();
             return _mapper.Map<List<ContratoDto>>(contrato);
         }
+        [HttpGet("SelectContractIsActive")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<IEnumerable<ContratoDto>>> SelectContractIsActive()
+        {
+            var contrato = await _unitOfWork.Contratos.SelectContractIsActive();
+            return Ok(contrato);
+        }
         
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]

@@ -9,11 +9,11 @@ public class Contrato : BaseEntity
 
     public int ClienteId { get; set; }
 
-    public DateOnly FechaContrato { get; set; }
+    public DateTime FechaContrato { get; set; }
 
     public int EmpleadoId { get; set; }
 
-    public DateOnly FechaFin { get; set; }
+    public DateTime FechaFin { get; set; }
 
     public int EstatoId { get; set; }
 

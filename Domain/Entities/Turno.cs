@@ -9,9 +9,9 @@ public class Turno : BaseEntity
 
     public string NombreTurno { get; set; } = null!;
 
-    public DateOnly HoraTurnoI { get; set; }
+    public DateTime HoraTurnoI { get; set; }
 
-    public DateOnly HoraTurnoF { get; set; }
+    public DateTime HoraTurnoF { get; set; }
 
     public virtual ICollection<Programacion> Programacions { get; set; } = new List<Programacion>();
 }

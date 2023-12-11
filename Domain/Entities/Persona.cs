@@ -11,7 +11,7 @@ public class Persona : BaseEntity
 
     public string Nombre { get; set; } = null!;
 
-    public DateOnly DateReg { get; set; }
+    public DateTime DateReg { get; set; }
 
     public int TpersonaId { get; set; }
 

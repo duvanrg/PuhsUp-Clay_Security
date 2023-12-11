@@ -1,3 +1,17 @@
+DROP TABLE IF EXISTS `categoriaper`;
+DROP TABLE IF EXISTS `ciudad`;
+DROP TABLE IF EXISTS `contactoper`;
+DROP TABLE IF EXISTS `contrato`;
+DROP TABLE IF EXISTS `departamento`;
+DROP TABLE IF EXISTS `dirpersona`;
+DROP TABLE IF EXISTS `estado`;
+DROP TABLE IF EXISTS `pais`;
+DROP TABLE IF EXISTS `persona`;
+DROP TABLE IF EXISTS `programacion`;
+DROP TABLE IF EXISTS `tipocontacto`;
+DROP TABLE IF EXISTS `tipodireccion`;
+DROP TABLE IF EXISTS `tipopersona`;
+DROP TABLE IF EXISTS `turnos`;
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
@@ -446,3 +460,181 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+-- 1. **Tabla: `categoriaper`**
+   
+   INSERT INTO `categoriaper` (`Id`, `NombreCat`) VALUES
+   (1, 'Hogar'),
+   (2, 'Tecnología'),
+   (3, 'Belleza'),
+   (4, 'Moda'),
+   (5, 'Deportes'),
+   (6, 'Alimentos'),
+   (7, 'Salud'),
+   (8, 'Entretenimiento'),
+   (9, 'Automotriz'),
+   (10, 'Viajes');
+   
+
+-- 2. **Tabla: `ciudad`**
+   
+   INSERT INTO `ciudad` (`Id`, `NombreCiu`, `DepId`) VALUES
+   (1, 'Bucaramanga', 1),
+   (2, 'Floridablanca', 1),
+   (3, 'Girón', 1),
+   (4, 'Piedecuesta', 1),
+   (5, 'Barrancabermeja', 2),
+   (6, 'San Gil', 3),
+   (7, 'Socorro', 3),
+   (8, 'Aratoca', 3),
+   (9, 'Barichara', 3),
+   (10, 'Lebrija', 1);
+   
+
+-- 3. **Tabla: `contactoper`**
+   
+   INSERT INTO `contactoper` (`Id`, `Descripcion`, `PersonaId`, `TContactoId`) VALUES
+   (1, 'Teléfono Principal', 1, 1),
+   (2, 'Correo Electrónico', 2, 2),
+   (3, 'Celular', 3, 1),
+   (4, 'WhatsApp', 4, 1),
+   (5, 'Redes Sociales', 5, 3),
+   (6, 'Teléfono Trabajo', 6, 1),
+   (7, 'Fax', 7, 4),
+   (8, 'Skype', 8, 3),
+   (9, 'Teléfono Emergencia', 9, 1),
+   (10, 'Otro', 10, 5);
+   
+
+-- 4. **Tabla: `contrato`**
+   
+   INSERT INTO `contrato` (`Id`, `ClienteId`, `FechaContrato`, `EmpleadoId`, `FechaFin`, `EstatoId`) VALUES
+   (1, 1, '2023-01-15', 2, '2023-12-31', 1),
+   (2, 3, '2023-02-10', 1, '2023-11-30', 2),
+   (3, 2, '2023-03-22', 3, '2023-10-15', 1),
+   (4, 4, '2023-04-05', 5, '2023-09-20', 2),
+   (5, 6, '2023-05-18', 4, '2023-08-31', 1),
+   (6, 5, '2023-06-30', 6, '2023-07-15', 2),
+   (7, 8, '2023-07-12', 7, '2023-06-30', 1),
+   (8, 7, '2023-08-25', 9, '2023-05-10', 2),
+   (9, 10, '2023-09-08', 8, '2023-04-25', 1),
+   (10, 9, '2023-10-20', 10, '2023-03-15', 2);
+   
+
+-- 5. **Tabla: `departamento`**
+   
+   INSERT INTO `departamento` (`Id`, `NombreDep`, `PaisId`) VALUES
+   (1, 'Santander', 1),
+   (2, 'Norte de Santander', 1),
+   (3, 'Boyacá', 1),
+   (4, 'Cundinamarca', 1),
+   (5, 'Antioquia', 1),
+   (6, 'Atlántico', 1),
+   (7, 'Bolívar', 1),
+   (8, 'Caldas', 1),
+   (9, 'Caquetá', 1),
+   (10, 'Casanare', 1);
+   
+
+-- 6. **Tabla: `dirpersona`**
+   
+   INSERT INTO `dirpersona` (`Id`, `Direccion`, `PersonaId`, `TDireccionId`) VALUES
+   (1, 'Carrera 23 #45-67', 1, 1),
+   (2, 'Calle 56 #12-34', 2, 2),
+   (3, 'Avenida 78 #90-12', 3, 1),
+   (4, 'Diagonal 45 #67-89', 4, 3),
+   (5, 'Transversal 34 #56-78', 5, 2),
+   (6, 'Carrera 12 #34-56', 6, 1),
+   (7, 'Calle 90 #23-45', 7, 4),
+   (8, 'Avenida 67 #45-23', 8, 3),
+   (9, 'Diagonal 34 #56-78', 9, 1),
+   (10, 'Transversal 56 #78-90', 10, 2);
+   
+
+-- 7. **Tabla: `estado`**
+   
+   INSERT INTO `estado` (`Id`, `Descripcion`) VALUES
+   (1, 'Activo'),
+   (2, 'Inactivo'),
+   (3, 'Pendiente'),
+   (4, 'En Proceso'),
+   (5, 'Finalizado'),
+   (6, 'Cancelado'),
+   (7, 'Suspendido'),
+   (8, 'En Revisión'),
+   (9, 'Aprobado'),
+   (10, 'Rechazado');
+   
+
+-- 8. **Tabla: `pais`**
+   
+   INSERT INTO `pais` (`Id`, `NombrePais`) VALUES
+   (1, 'Colombia');
+   
+
+-- 9. **Tabla: `persona`**
+   
+   INSERT INTO `persona` (`Id`, `IdPersona`, `Nombre`, `DateReg`, `TPersonaId`, `CatId`, `CiudadId`) VALUES
+   (1, 101, 'Juan Pérez', '2023-01-02', 1, 1, 1),
+   (2, 102, 'María Gómez', '2023-02-15', 2, 2, 2),
+   (3, 103, 'Carlos
+
+ Rodríguez', '2023-03-20', 1, 3, 3),
+   (4, 104, 'Ana Martínez', '2023-04-10', 2, 4, 4),
+   (5, 105, 'Luisa Sánchez', '2023-05-25', 1, 5, 5),
+   (6, 106, 'David López', '2023-06-15', 2, 6, 6),
+   (7, 107, 'Laura Ramírez', '2023-07-30', 1, 7, 7),
+   (8, 108, 'Javier García', '2023-08-12', 2, 8, 8),
+   (9, 109, 'Marta Castro', '2023-09-22', 1, 9, 9),
+   (10, 110, 'Oscar Vargas', '2023-10-05', 2, 10, 10);
+   
+
+-- 10. **Tabla: `programacion`**
+    
+    INSERT INTO `programacion` (`Id`, `ContratoId`, `TurnoId`, `EmpleadoId`) VALUES
+    (1, 1, 2, 3),
+    (2, 3, 1, 5),
+    (3, 2, 3, 1),
+    (4, 5, 2, 6),
+    (5, 4, 1, 4),
+    (6, 6, 3, 10),
+    (7, 8, 2, 7),
+    (8, 7, 1, 9),
+    (9, 10, 3, 8),
+    (10, 9, 2, 2);
+    
+
+-- 11. **Tabla: `tipocontacto`**
+    
+    INSERT INTO `tipocontacto` (`Id`, `Descripcion`) VALUES
+    (1, 'Teléfono'),
+    (2, 'Correo Electrónico'),
+    (3, 'Redes Sociales'),
+    (4, 'Fax'),
+    (5, 'Otro');
+    
+
+-- 12. **Tabla: `tipodireccion`**
+    
+    INSERT INTO `tipodireccion` (`Id`, `Descripcion`) VALUES
+    (1, 'Residencial'),
+    (2, 'Comercial'),
+    (3, 'Vacacional'),
+    (4, 'Oficina');
+    
+
+-- 13. **Tabla: `tipopersona`**
+    
+    INSERT INTO `tipopersona` (`Id`, `Descripcion`) VALUES
+    (1, 'Natural'),
+    (2, 'Jurídica');
+    
+
+-- 14. **Tabla: `turnos`**
+    
+    INSERT INTO `turnos` (`Id`, `NombreTurno`, `HoraTurnoI`, `HoraTurnoF`) VALUES
+    (1, 'Mañana', '07:00:00', '15:00:00'),
+    (2, 'Tarde', '15:00:00', '23:00:00'),
+    (3, 'Noche', '23:00:00', '07:00:00');
+    

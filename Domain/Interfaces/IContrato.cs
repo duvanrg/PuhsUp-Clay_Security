@@ -6,5 +6,5 @@ namespace Domain.Interfaces;
 
 public interface IContrato : IGenericRepository<Contrato>
 {
-    
+    Task<IEnumerable<object>> SelectContractIsActive();
 }

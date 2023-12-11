@@ -113,8 +113,8 @@ namespace Persistence.Data.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     NombreTurno = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    HoraTurnoI = table.Column<DateOnly>(type: "date", nullable: false),
-                    HoraTurnoF = table.Column<DateOnly>(type: "date", nullable: false)
+                    HoraTurnoI = table.Column<DateTime>(type: "date", nullable: false),
+                    HoraTurnoF = table.Column<DateTime>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -174,7 +174,7 @@ namespace Persistence.Data.Migrations
                     IdPersona = table.Column<int>(type: "int(11)", nullable: false),
                     Nombre = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    DateReg = table.Column<DateOnly>(type: "date", nullable: false),
+                    DateReg = table.Column<DateTime>(type: "date", nullable: false),
                     TPersonaId = table.Column<int>(type: "int(11)", nullable: false),
                     CatId = table.Column<int>(type: "int(11)", nullable: false),
                     CiudadId = table.Column<int>(type: "int(11)", nullable: false)
@@ -239,9 +239,9 @@ namespace Persistence.Data.Migrations
                     Id = table.Column<int>(type: "int(11)", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ClienteId = table.Column<int>(type: "int(11)", nullable: false),
-                    FechaContrato = table.Column<DateOnly>(type: "date", nullable: false),
+                    FechaContrato = table.Column<DateTime>(type: "date", nullable: false),
                     EmpleadoId = table.Column<int>(type: "int(11)", nullable: false),
-                    FechaFin = table.Column<DateOnly>(type: "date", nullable: false),
+                    FechaFin = table.Column<DateTime>(type: "date", nullable: false),
                     EstatoId = table.Column<int>(type: "int(11)", nullable: false)
                 },
                 constraints: table =>

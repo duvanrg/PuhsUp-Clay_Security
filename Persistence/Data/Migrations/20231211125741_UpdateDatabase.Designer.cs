@@ -107,10 +107,10 @@ namespace Persistence.Data.Migrations
                     b.Property<int>("EstatoId")
                         .HasColumnType("int(11)");
 
-                    b.Property<DateOnly>("FechaContrato")
+                    b.Property<DateTime>("FechaContrato")
                         .HasColumnType("date");
 
-                    b.Property<DateOnly>("FechaFin")
+                    b.Property<DateTime>("FechaFin")
                         .HasColumnType("date");
 
                     b.HasKey("Id")
@@ -222,7 +222,7 @@ namespace Persistence.Data.Migrations
                     b.Property<int>("CiudadId")
                         .HasColumnType("int(11)");
 
-                    b.Property<DateOnly>("DateReg")
+                    b.Property<DateTime>("DateReg")
                         .HasColumnType("date");
 
                     b.Property<int>("IdPersona")
@@ -337,10 +337,10 @@ namespace Persistence.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int(11)");
 
-                    b.Property<DateOnly>("HoraTurnoF")
+                    b.Property<DateTime>("HoraTurnoF")
                         .HasColumnType("date");
 
-                    b.Property<DateOnly>("HoraTurnoI")
+                    b.Property<DateTime>("HoraTurnoI")
                         .HasColumnType("date");
 
                     b.Property<string>("NombreTurno")
