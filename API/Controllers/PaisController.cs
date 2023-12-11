@@ -1,4 +1,5 @@
 ﻿using API.Dtos;
+using API.Helpers;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Interfaces;
@@ -16,6 +17,7 @@ namespace API.Controllers
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
+        
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -23,6 +25,16 @@ namespace API.Controllers
         {
             var pais = await _unitOfWork.Paises.GetAllAsync();
             return _mapper.Map<List<PaisDto>>(pais);
+        }
+        
+        [HttpGet("pager")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<Pager<PaisDto>>> GetPager([FromQuery] Params paisParams)
+        {
+            var pais = await _unitOfWork.Paises.GetAllAsync(paisParams.PageIndex, paisParams.PageSize, paisParams.Search);
+            var lstPaisesDto = _mapper.Map<List<PaisDto>>(pais.registros);
+            return new Pager<PaisDto>( paisParams.Search, pais.totalRegistros, paisParams.PageIndex, paisParams.PageSize, lstPaisesDto);
         }
         
         [HttpGet("{id}")]
